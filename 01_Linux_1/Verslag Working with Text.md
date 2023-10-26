@@ -18,5 +18,4 @@ Echo = input tekst naar output terminal
 Wist eerst niet hoe ik enkel de zin kon selecteren waar ''techgrounds'' instond. Via online bron gevonden. Zo ook de oplossing om deze zin in een aparte map te plaatsen.
 
 ### Resultaat
-![](WorkingwithTextScreenshot.jpg)
-
+![Alt text](../00_includes/WorkingwithTextScreenshot.jpg)

@@ -35,4 +35,4 @@ chmod +x bestandnaam = maakt bestand executable
 
 ### Resultaat
 
-![Alt text](../Screenshots/filepermission123.jpg) ![Alt text](../Screenshots/filepermission4.jpg) ![Alt text](../Screenshots/filepermission56.jpg)
+![Alt text](../00_includes/filepermission123.jpg)![Alt text](../00_includes/filepermission4.jpg)![Alt text](../00_includes/filepermission56.jpg)

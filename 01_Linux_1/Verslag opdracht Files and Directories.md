@@ -23,4 +23,5 @@ cd = home, or go to directory when adding directory name
 Moeite met achterhalen hoe absolute en relative paths werkte. Uiteindelijk met online bronnen en hulp van medestudent wel gelukt.
 
 ### Resultaat
-![Alt text](Files&DirectoriesScreenshot.jpg)
+
+![Alt text](../00_includes/Files&DirectoriesScreenshot.jpg)

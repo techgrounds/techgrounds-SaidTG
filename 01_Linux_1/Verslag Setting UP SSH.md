@@ -14,4 +14,4 @@ Kon niet verbinden met locatie van PEM bestand. Moest dus eerst locatie van map 
 ### Resultaat
 __whoami__ ingetypt en zag toen mijn username.
 
-![](../Screenshots/sshexercise.jpg)
+![Alt text](../00_includes/sshexercise.jpg)
