@@ -39,4 +39,4 @@ getent passwd username
 
 ### Resultaat
 
-![Alt text](usersandgroupsscreenshot-1.jpg)
+![Alt text](../Screenshots/usersandgroupsscreenshot.jpg)
