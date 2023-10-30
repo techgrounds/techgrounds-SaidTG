@@ -35,11 +35,17 @@ IP is het adressyteem van het internet en zorgt voor de levering van packets inf
 __TCP/IP Model en wat het doet__
 
 TCP zorgt voor het samenstellen van de ontvangen packets en vraagt indien nodig aan de sender naar de ontbrekende packets. TCP behoudt ten alle tijden contact met de sender gedurende de overdracht.
+
 ![Alt text](../00_includes/TCP.jpeg)
+
 __OSI Model 7-Layers en netwerkapparatuur__
+
 ![Alt text](../00_includes/OSI7devices.jpg)
+
 __OSI Model 7-Layers en wat elke Layer doet__
+
 ![Alt text](../00_includes/OSI-7-layers.jpg)
 
 __OSI en TCP/IP vergelijking__
+
 ![Alt text](../00_includes/OSI-TCP-ip.webp)
