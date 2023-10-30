@@ -4,23 +4,11 @@ Cron Jobs zijn scripts die je regelmatig kan laten uitvoeren door te automatiser
 ## Key-terms
 timedatectl = huidige tijd en datum
 
-cat > TimeDate.sh = sudo timedatectl >> TimeDate.txt
+df -h = schijfdata
 
-chmod +x TimeDate.sh
+sudo mv = Verplaats bestand naar andere directory
 
-crontab -e = * * * * * /home/said_/TimeDate.sh
-
-cat > diskweekly.sh = sudo df -h --total >> diskweekly.log
-
-chmod +x diskweekly.sh
-
-./diskweekly.sh
-
-sudo mv diskweekly.sh /var/log
-
-sudo mv diskweekly.log /var/log
-
-crontab -e = 0 0 * * 0 /var/log/diskweekly.sh
+crontab -e = Crontab editor.
 
 ## Opdracht
 ### Gebruikte bronnen
@@ -30,7 +18,17 @@ crontab -e = 0 0 * * 0 /var/log/diskweekly.sh
 * current date/time (https://www.cyberciti.biz/faq/linux-display-date-and-time/)
 * set timezone (https://askubuntu.com/questions/679988/how-to-change-ubuntus-server-date-and-time-via-command-line)
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+* __Cronjobs; Time/Date and Available disk space__
+
+![Alt text](../00_includes/TimeNowCron.JPG) 
+
+* __Script with current time and date__
+
+![Alt text](../00_includes/ScriptTimeNow.JPG)
+
+* __Available disk space__
+
+![Alt text](../00_includes/diskspace.JPG)
