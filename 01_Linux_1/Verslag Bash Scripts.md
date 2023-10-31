@@ -1,6 +1,6 @@
 # Bash Scripts
 
-Verschillende scripts gemaakt die commands uitvoeren. Toegevoegd aan niewe directory. Deze toegevoegd aan PATH. Script heeft httpd geïnstalleerd. Script gemaakt die een willekeurig nummer naar tekstbestand schrijft als hoger dan 5 of anders een zin tekst.
+Verschillende scripts gemaakt die commands uitvoeren. Toegevoegd aan nieuwe directory. Deze toegevoegd aan PATH. Script heeft httpd geïnstalleerd. Script gemaakt die een willekeurig nummer naar tekstbestand schrijft als hoger dan 5 of anders een zin tekst.
 
 ## Opdracht
 ### Gebruikte bronnen
