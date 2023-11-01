@@ -4,6 +4,8 @@ Heb mij ingelezen over OSI en TCP/IP. OSI model wordt niet gebruikt, maar is han
 ## Key-terms
 OSI is een theorische stack van 7 lagen om te begrijpen hoe een netwerk functioneert. All People Seem To Need Data Processing.
 
+Het OSI-model (Open Systems Interconnection) beschrijft een standaardisatie van de functionaliteiten in een communicatiesysteem via abstracte lagen. Elke laag definieert een eigen set functionaliteiten tijdens de communicatie tussen netwerkapparaten en communiceert alleen met de laag erboven en eronder.
+
 Laag 1 Physical Layer is de onderste. Die draagt de data middels fysieke hardware, zoals internetkabels, NIC, Hubs.
 
 Laag 2 DataLink Layer. De fysiek adressen worden van laag 1 toegevoegd aan de data. Zoals de source en destination MAC addresses. En de switch.
