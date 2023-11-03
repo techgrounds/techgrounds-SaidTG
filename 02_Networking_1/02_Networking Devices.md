@@ -39,6 +39,6 @@ Netwerkapparatuur = Netwerkapparatuur verwijst naar fysieke apparaten die worden
 __DHCP vind je via het routeradres (192.168.1.1). Bij LAN Interface;__
 ![Alt text](../00_includes/DHCPserver.JPG)
 __Network Devices__
-![Alt text](../00_includes/types_of_network_devices-f.png)
+![Alt text](../00_includes/02_networkdevices.png)
 __OSI model en Network Devices__
 ![Alt text](../00_includes/OSI7devices.jpg)
