@@ -1,5 +1,5 @@
 # File Permissions
-Via de VM heb ik een bestand aangemaakt en gekeken wie de owner is en wat de permissions zijn. Het bestand executable gemaakt. Daarna de read en write permissions verwijderd voor group en others, maar niet voor owner. Andere user owner gemaakt. Ik kon bestand niet meer lezen, tenzij ik sudo gebruikte. Als laatst Group ownership veranandert.
+Via de VM heb ik een bestand aangemaakt en gekeken wie de owner is en wat de permissions zijn. Het bestand executable gemaakt. Daarna de read en write permissions verwijderd voor group en others, maar niet voor owner. Andere user owner gemaakt. Ik kon bestand niet meer lezen, tenzij ik sudo gebruikte. Als laatst Group ownership veranderd.
 
 ## Key-terms
 sudo cat bestandnaam = permissie tot alle bestanden te krijgen met root
