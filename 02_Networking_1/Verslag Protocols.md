@@ -1,21 +1,28 @@
 # Protocols
 Een netwerkprotocol is een reeks regels en conventies die worden gebruikt voor de communicatie tussen apparaten en systemen binnen een computernetwerk. Deze regels definiëren hoe gegevens worden verzonden, ontvangen, geïnterpreteerd en verwerkt over een netwerk, zodat apparaten effectief kunnen samenwerken en gegevens kunnen uitwisselen.
 
-De bepaling van welke protocollen we gebruiken en het proces om een nieuw protocol in te voeren, worden beïnvloed door verschillende belanghebbenden, standaardisatieorganisaties, brancheverenigingen en marktdynamiek. Hier is een overzicht van de belangrijkste factoren en het proces om een nieuw protocol in te voeren:
+De bepaling van welke protocollen we gebruiken en het proces om een nieuw protocol in te voeren, worden beïnvloed door verschillende belanghebbenden, standaardisatieorganisaties, brancheverenigingen en marktdynamiek. 
 
- Identificeer de behoefte: Bepaal het specifieke probleem of gebruiksscenario dat uw protocol beoogt op te lossen. Begrip van waarom een nieuw protocol nodig is, is essentieel.
+Voorbeelden zijn:
+World Wide Web Consortium (W3C)
+Telecommunication Standardization Sector (ITU-T)
+Internet Architecture Board (IAB)
 
-Protocolontwerp: Ontwikkel de technische specificaties van uw protocol, inclusief gegevenspakketformaten, communicatiemechanismen, foutcorrectie, beveiliging en andere relevante aspecten.
+Hier is een overzicht van de belangrijkste factoren en het proces om een nieuw protocol in te voeren:
 
-Technische implementatie: Maak een werkende implementatie of prototype van uw protocol om de haalbaarheid en functionaliteit te demonstreren.
+Identificeer de behoefte: Bepaal het specifieke probleem of gebruiksscenario dat het protocol beoogt op te lossen. Begrip van waarom een nieuw protocol nodig is, is essentieel.
 
-Testen en validatie: Test en valideer uw protocol grondig om ervoor te zorgen dat het correct, veilig en efficiënt functioneert. Dit omvat prestatietests, beveiligingstests en compatibiliteitstests met bestaande protocollen.
+Protocolontwerp: Ontwikkel de technische specificaties van het protocol, inclusief gegevenspakketformaten, communicatiemechanismen, foutcorrectie, beveiliging en andere relevante aspecten.
 
-Documentatie: Maak uitgebreide documentatie voor uw protocol, inclusief specificaties, richtlijnen voor gebruik en eventuele ondersteunende materialen.
+Technische implementatie: Maak een werkende implementatie of prototype van het protocol om de haalbaarheid en functionaliteit te demonstreren.
 
-Promotie en acceptatie: Promoot uw protocol binnen de relevante gemeenschap of branche en werk aan acceptatie bij potentiële gebruikers en belanghebbenden.
+Testen en validatie: Test en valideer het protocol grondig om ervoor te zorgen dat het correct, veilig en efficiënt functioneert. Dit omvat prestatietests, beveiligingstests en compatibiliteitstests met bestaande protocollen.
 
-Standaardisatie (optioneel): Als uw protocol bedoeld is voor breed gebruik, kunt u overwegen het ter standaardisatie voor te dragen bij relevante standaardisatieorganisaties of brancheverenigingen. Standaardisatie kan helpen bij interoperabiliteit en brede acceptatie.
+Documentatie: Maak uitgebreide documentatie voor het protocol, inclusief specificaties, richtlijnen voor gebruik en eventuele ondersteunende materialen.
+
+Promotie en acceptatie: Promoot het protocol binnen de relevante gemeenschap of branche en werk aan acceptatie bij potentiële gebruikers en belanghebbenden.
+
+Standaardisatie (optioneel): Als een protocol bedoeld is voor breed gebruik, kan je het voor standaardisatie voor dragen bij relevante standaardisatieorganisaties of brancheverenigingen. Standaardisatie kan helpen bij interoperabiliteit en brede acceptatie.
 
 ## Key-terms
 
@@ -33,7 +40,7 @@ Routings- en switchingalgoritmen: Ze kunnen specificeren hoe gegevenspakketten d
 
 Flow control en congestiebeheer: Sommige protocollen regelen de snelheid van gegevensoverdracht en beheren netwerkcongestie, zoals TCP.
 
-* Voorbeeld van bekende netwerkprotocollen zijn:
+* __Voorbeeld van bekende netwerkprotocollen zijn:__
 
 TCP (Transmission Control Protocol): Een betrouwbaar protocol dat wordt gebruikt voor veel toepassingen op internet, zoals webbrowsing, e-mail en bestandsoverdracht.
 
@@ -56,9 +63,14 @@ Netwerkprotocollen stellen apparaten in staat om met elkaar te communiceren en v
 ## Opdracht
 ### Gebruikte bronnen
 * Network Protocols (https://www.techtarget.com/searchnetworking/feature/12-common-network-protocols-and-their-functions-explained)
+* Who determines protocols (https://snapshot.internetx.com/en/who-creates-the-standards-and-protocols-for-the-internet/)
 
 ### Resultaat
 
 * __Protocols and associated OSI Layers__
 
 ![Alt text](../00_includes/osi-model-7-layers-1.png)
+
+* __Wireshark data__
+
+![Alt text](../00_includes/protocolswireshark.JPG)
