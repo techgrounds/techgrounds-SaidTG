@@ -36,6 +36,8 @@ CIDR/Subnet:
 
 * __Netwerkarchitectuur__
 
+![Alt text](../00_includes/02_NetworkArchitecture.JPG)
+
 Ik heb gekozen voor...
 
 
