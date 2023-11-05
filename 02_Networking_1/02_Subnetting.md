@@ -42,8 +42,7 @@ CIDR/Subnet:
 
 ![Alt text](../00_includes/02_NetworkArchitecture.JPG)
 
-Ik heb gekozen voor...
-
+* Ik heb gekozen voor 1 Public subnet en 2 Private subnets, hierin zijn hosts geplaats. Er zijn ook resterende IPs die niet worden gebruikt. Daar is een apart vak voor gemaakt. De /27 is verbonden via switch met andere subnets. De /26 is ook aangesloten op de switch en op de NAT router die op die manier via de internet gateway het internet op kan.
 
 ## Opdracht
 ### Gebruikte bronnen
