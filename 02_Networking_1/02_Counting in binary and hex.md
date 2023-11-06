@@ -25,7 +25,9 @@ Laten we als voorbeeld het decimale getal 23 omzetten naar binair.
 
     Stop wanneer het quotient in de deling 0 is.
 
-    Schrijf de binaire getallen op die je in elke stap hebt genoteerd van rechts naar links. Het resultaat is het binaire equivalent van het oorspronkelijke decimale getal. In ons voorbeeld is het binaire equivalent van 23: 10111.
+    Schrijf de binaire getallen op die je in elke stap hebt genoteerd van rechts naar links. Het resultaat is het binaire equivalent van het oorspronkelijke decimale getal. 
+    
+    In ons voorbeeld is het binaire equivalent van 23: 10111.
 
 * __Voorbeeld__
 
