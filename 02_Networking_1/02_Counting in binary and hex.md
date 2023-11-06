@@ -53,8 +53,8 @@ Dit lees je van onder-naar-boven: 10000. De hoeveelheid cijfers wordt bepaald do
 
 * __Binary to Decimal__
 
-Om binar naar decimaal om te rekenen vermenigvuldig je van links naar rechts bij de binare reeks. Hierbij bepaalt de hoeveel binaire cijfers hoevaak je vermenigvuldig. 
-Hier gebruik je het schema; 1, 2, 4, 8, 16, 32, 64, 128, 256.
+Om binar naar decimaal om te rekenen vermenigvuldig je van rechts naar links bij de binare reeks. Hierbij bepaalt de hoeveel binaire cijfers hoevaak je vermenigvuldig. 
+Hier gebruik je het schema; 1, 2, 4, 8, 16, 32, 64, 128, 256. Begin bij 1 als eerst waarde.
 
 Om van een binair getal naar een decimaal getal te converteren, kun je de volgende stappen volgen:
 
@@ -81,9 +81,9 @@ Laten we het binaire getal 10111 omzetten naar decimaal.
 
     Vermenigvuldig elk cijfer in het binaire getal met de overeenkomstige waarde:
         1 * 1 = 1
-        0 * 2 = 0
+        1 * 2 = 2
         1 * 4 = 4
-        1 * 8 = 8
+        0 * 8 = 0
         1 * 16 = 16
 
     Tel alle waarden op die je hebt berekend in stap 3:
