@@ -123,7 +123,13 @@ Nu trek je alles bij elkaar op: 2+8+32+128 = 170
 
 * __Decimal to Hexademical__
 
-        Deel / het decimaal getal door 16 en schrijf het gehele getal (integer) op, en bewaar de rest achter de komma. Doe dan 16 * rest en schrijf het resultaat op als Remainder. Herhaal dit totdat je een 0 heb vóór de komma en doe 16* Rest. Vertaal dan de restcijfers naar de hexadecimale karakters. Hexadecimaal heeft 10 cijfers, van 0 t/m 9, en 5 letters, van A t/m F. (base 16). A t/m F is dus gelijk aan 10 t/m 15 in decimale getallen. Het eerste restgetal is het minst significant (LSD), en het laatste restgetal het meest significant (MSD). Het resultaat schrijf je dus op van laatste naar eerste.
+      Deel / het decimaal getal door 16 en schrijf het gehele getal (integer) op, en bewaar de rest achter de komma. Doe dan 16 * rest en schrijf het resultaat op als Remainder.
+
+      Herhaal dit totdat je een 0 heb vóór de komma en doe 16* Rest. Vertaal dan de restcijfers naar de hexadecimale karakters.
+
+      Hexadecimaal heeft 10 cijfers, van 0 t/m 9, en 5 letters, van A t/m F. (base 16). A t/m F is dus gelijk aan 10 t/m 15 in decimale getallen.
+
+      Het eerste restgetal is het minst significant (LSD), en het laatste restgetal het meest significant (MSD). Het resultaat schrijf je dus op van laatste naar eerste.
 
 * __Voorbeeld__
 
