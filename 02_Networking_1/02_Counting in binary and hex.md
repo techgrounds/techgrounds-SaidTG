@@ -25,14 +25,19 @@ Laten we als voorbeeld het decimale getal 23 omzetten naar binair.
 
     Stop wanneer het quotient in de deling 0 is.
 
-    Schrijf de binaire getallen op die je in elke stap hebt genoteerd van rechts naar links. Het resultaat is het binaire equivalent van het oorspronkelijke decimale getal. In ons voorbeeld is het binaire equivalent van 23: 10111.
+    Schrijf de binaire getallen op die je in elke stap hebt genoteerd van rechts naar links. 
+    Het resultaat is het binaire equivalent van het oorspronkelijke decimale getal. In ons voorbeeld is het binaire equivalent van 23: 10111.
 
 * __Voorbeeld__
 
 16/2 = 8 = 0 
+
 8/2 = 4 = 0
+
 4/2 = 2 = 0
+
 2/2 = 1 = 0
+
 1/2 = 0,5 = 1
 
 Dit lees je van onder-naar-boven: 10000. De hoeveelheid cijfers wordt bepaald door de hoeveelheid delingen. In dit voorbeeld is dat 5 keer gebeurt en krijg je dus 5 cijfers.
@@ -49,8 +54,8 @@ Dit lees je van onder-naar-boven: 10000. De hoeveelheid cijfers wordt bepaald do
 
 * __Binary to Decimal__
 
-Om binar naar decimaal om te rekenen vermenigvuldig je van links naar rechts bij de binare reeks. Hierbij bepaalt de hoeveel binaire cijfers hoevaak je vermenigvuldig. 
-Hier gebruik je het schema; 1, 2, 4, 8, 16, 32, 64, 128, 256.
+Om binar naar decimaal om te rekenen vermenigvuldig je van rechts naar links bij de binare reeks. Hierbij bepaalt de hoeveel binaire cijfers hoevaak je vermenigvuldig. 
+Hier gebruik je het schema; 1, 2, 4, 8, 16, 32, 64, 128, 256. Begin bij 1 als eerst waarde.
 
 Om van een binair getal naar een decimaal getal te converteren, kun je de volgende stappen volgen:
 
@@ -77,9 +82,9 @@ Laten we het binaire getal 10111 omzetten naar decimaal.
 
     Vermenigvuldig elk cijfer in het binaire getal met de overeenkomstige waarde:
         1 * 1 = 1
-        0 * 2 = 0
+        1 * 2 = 2
         1 * 4 = 4
-        1 * 8 = 8
+        0 * 8 = 0
         1 * 16 = 16
 
     Tel alle waarden op die je hebt berekend in stap 3:
@@ -119,7 +124,13 @@ Nu trek je alles bij elkaar op: 2+8+32+128 = 170
 
 * __Decimal to Hexademical__
 
-        Deel / het decimaal getal door 16 en schrijf het gehele getal (integer) op, en bewaar de rest achter de komma. Doe dan 16 * rest en schrijf het resultaat op als Remainder. Herhaal dit totdat je een 0 heb vóór de komma en doe 16* Rest. Vertaal dan de restcijfers naar de hexadecimale karakters. Hexadecimaal heeft 10 cijfers, van 0 t/m 9, en 5 letters, van A t/m F. (base 16). A t/m F is dus gelijk aan 10 t/m 15 in decimale getallen. Het eerste restgetal is het minst significant (LSD), en het laatste restgetal het meest significant (MSD). Het resultaat schrijf je dus op van laatste naar eerste.
+      Deel / het decimaal getal door 16 en schrijf het gehele getal (integer) op, en bewaar de rest achter de komma. Doe dan 16 * rest en schrijf het resultaat op als Remainder.
+
+      Herhaal dit totdat je een 0 heb vóór de komma en doe 16* Rest. Vertaal dan de restcijfers naar de hexadecimale karakters.
+
+      Hexadecimaal heeft 10 cijfers, van 0 t/m 9, en 5 letters, van A t/m F. (base 16). A t/m F is dus gelijk aan 10 t/m 15 in decimale getallen.
+
+      Het eerste restgetal is het minst significant (LSD), en het laatste restgetal het meest significant (MSD). Het resultaat schrijf je dus op van laatste naar eerste.
 
 * __Voorbeeld__
 
