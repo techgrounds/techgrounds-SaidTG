@@ -30,9 +30,13 @@ Laten we als voorbeeld het decimale getal 23 omzetten naar binair.
 * __Voorbeeld__
 
 16/2 = 8 = 0 
+
 8/2 = 4 = 0
+
 4/2 = 2 = 0
+
 2/2 = 1 = 0
+
 1/2 = 0,5 = 1
 
 Dit lees je van onder-naar-boven: 10000. De hoeveelheid cijfers wordt bepaald door de hoeveelheid delingen. In dit voorbeeld is dat 5 keer gebeurt en krijg je dus 5 cijfers.
