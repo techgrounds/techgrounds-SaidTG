@@ -37,13 +37,13 @@ Laten we als voorbeeld het decimale getal 23 omzetten naar binair.
 
 Dit lees je van onder-naar-boven: 10000. De hoeveelheid cijfers wordt bepaald door de hoeveelheid delingen. In dit voorbeeld is dat 5 keer gebeurt en krijg je dus 5 cijfers.
 
-| Decimal | Binary   |
-|---------|----------|
-| 16      | 10000    |
-| 128     | 10000000 |
-| 228     | 11100100 |
-| 112     | 1110000  |
-| 73      | 1001001  |
+    | Decimal | Binary   |
+    |---------|----------|
+    | 16      | 10000    |
+    | 128     | 10000000 |
+    | 228     | 11100100 |
+    | 112     | 1110000  |
+    | 73      | 1001001  |
 
 ---
 
@@ -90,23 +90,30 @@ Dus, het binaire getal 10111 is gelijk aan het decimale getal 29. Dit is het dec
 * __Voorbeeld__
 
 0x1 = 0
+
 1x2 = 2
+
 0x4 = 0
+
 1x8 = 8
+
 0x16 = 0
+
 1x32 = 32
+
 0x64 = 0 
+
 1x128 = 128
 
 Nu trek je alles bij elkaar op: 2+8+32+128 = 170
 
-| Binary    | Decimal |
-|-----------|---------|
-| 1010 1010 | 170     |
-| 1111 0000 | 240     |
-| 1101 1011 | 219     |
-| 1010 0000 | 160     |
-| 0011 1010 | 58      |
+    | Binary    | Decimal |
+    |-----------|---------|
+    | 1010 1010 | 170     |
+    | 1111 0000 | 240     |
+    | 1101 1011 | 219     |
+    | 1010 0000 | 160     |
+    | 0011 1010 | 58      |
 
 ---
 
@@ -123,13 +130,13 @@ Nu trek je alles bij elkaar op: 2+8+32+128 = 170
 
 Remainder van onder naar boven: 10, 0, 15, 3. 10=A, 0=0, 15=F, 3=3. Hexadecimaal: a0f3
 
-| Decimal | Hexadecimal |
-|---------|-------------|
-| 15      | F           |
-| 37      | 25          |
-| 246     | F6          |
-| 125     | 7D          |
-| 209     | D1          |
+    | Decimal | Hexadecimal |
+    |---------|-------------|
+    | 15      | F           |
+    | 37      | 25          |
+    | 246     | F6          |
+    | 125     | 7D          |
+    | 209     | D1          |
 
 ---
 
@@ -161,13 +168,13 @@ Dus het hexadecimale getal 3A komt overeen met het decimale getal 58.
     8^16^0 = 8
     128+8 = 136
 
-| Hexadecimal | Decimal |
-|-------------|---------|
-| 88          | 136     |
-| e0          | 224     |
-| cb          | 203     |
-| 2f          | 47      |
-| d8          | 216     |
+    | Hexadecimal | Decimal |
+    |-------------|---------|
+    | 88          | 136     |
+    | e0          | 224     |
+    | cb          | 203     |
+    | 2f          | 47      |
+    | d8          | 216     |
 
 ---
 
