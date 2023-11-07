@@ -25,6 +25,7 @@ Bij het verzenden van dat begin het bij Layer 7 en loopt af tot en met Layer 1, 
 IP is het adressyteem van het internet en zorgt voor de levering van packets informatie van de source device naar het target device. IP is de voornaamste manier om netwerkverbindingen te maken en vormt de basis van het internet. 
 
 TCP verifieert of de gegevens aankomen en garandeert dat de gegevens in dezelfde volgorde aankomen.
+
 ## Opdracht
 ### Gebruikte bronnen
 * OSI 7-layers (https://www.bmc.com/blogs/osi-model-7-layers/)
