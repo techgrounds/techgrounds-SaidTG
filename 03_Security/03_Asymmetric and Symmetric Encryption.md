@@ -88,10 +88,11 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
 * __Examples of Digital Ciphers__
 
-        __Advanced Encryption Standard (AES):__ This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
-        Instead of a single round of encryption, data is put through several rounds of substitution, transposition, and mixing to make it harder to compromise.
-        __RSA:__: This is a type of Asymmetric encryption, which uses two different but linked keys. 
-        In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
+__Advanced Encryption Standard (AES):__ 
+This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
+Instead of a single round of encryption, data is put through several rounds of substitution, transposition, and mixing to make it harder to compromise.
+
+__RSA:__ This is a type of Asymmetric encryption, which uses two different but linked keys. In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
 
 ## Opdracht
 ### Gebruikte bronnen
