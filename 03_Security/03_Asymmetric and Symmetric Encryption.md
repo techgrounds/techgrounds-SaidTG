@@ -3,10 +3,10 @@ Encryption is the process of encoding information. This process converts the ori
 
 Encryption is used to provide Confidentiality. Only the intented recipient can interpret the data. 
 
-The sender will write Plain Text, encrypt it and send it as cipher text. The only one who can decrypt it and turn it into Plain Text again is the intented target/recipient.
-
 ## Key-terms
-* Public-key cryptography, also called asymmetric cryptography.
+* A cryptosystem is a suite of cryptographic algorithms needed to implement a particular security service, such as confidentiality.
+* Public-key algorithms, or asymmetric cryptography.
+* Single-key algorithms, or symmetric cryptography.
 * In public key cryptography, each user has a pair of cryptographic keys:
 
         a public key
@@ -25,9 +25,10 @@ So if the sender signed the message no one can alter it. This is used to get aut
 * Plain/Clear Text: Data before encryption and after decryption.
 * Cipher Text: Data while encrypted or after encryption.
 * Simple Encryption: Transforms Plain Text into Cipher Text.
-    * Doesn't scale.
-    * Hard to do securely.
-    * Cannot simply use Standard Algorithm that is known to the public. That makes it easy for everyone to decrypt.
+        
+        * Doesn't scale.
+        * Hard to do securely.
+        * Cannot simply use Standard Algorithm that is known to the public. That makes it easy for everyone to decrypt.
 * Key Based Encryption: Combines industry vetted algorithms with Secret Keys, which can be randomly generated.
 
 ---
@@ -43,7 +44,11 @@ So if the sender signed the message no one can alter it. This is used to get aut
     
         More secure. But slower because it generates much larger Key sizes. Better for Limited Data.
 
-            It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt. To decrypt you don't just move back 5 times. But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. It repeats this process with every encrypted letter.
+            It uses a series of characters like the alphabet and moves forward to encrypt. 
+            An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt.
+            To decrypt you don't just move back 5 times. 
+            But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. 
+            It repeats this process with every encrypted letter.
 
 * The 2 different Keys are related and the number of steps forward and backwards should add up to the total number of characters available in the character string used. In this case the alphabet has a total of 26 characters. So if you used 5 steps to move forward to Encrypt you have to move 21 steps forward to Decrypt so it will add up to 26.
 
@@ -51,23 +56,32 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
 * A Key is a code that could be anything.
 
-* Sender: The one who sends the Encrypted message to you using your Public Key.
+* Sender: The one who sends the Encrypted message to you, using your Public Key.
 
-* Recipient: The one who receives the Encrypted message that was Encrypted with your Public Key. You can Decrypt it by using your Private Key.
+* Recipient: The one who receives the Encrypted message that was Encrypted with their own Public Key. It can be Decrypted by using the Recipient's Private Key.
 
 * Asymmetric encryption route:
 
-        Generate a Public and Private Key pair. Send the Public Key to the person you want to receive the message from. They will write a message and encrypt it using your own Public Key. They will send the Encrypted message to you, that you can then Decrypt by using your own Private Key that is paired with the Public Key that was used to Encrypt it.
+        Generate a Public and Private Key pair. Send the Public Key to the person you want to receive the message from. 
+        They will write a message and encrypt it using your own Public Key. 
+        They will send the Encrypted message to you, that you can then Decrypt by using your own Private Key
+        That is paired with the Public Key that was used to Encrypt it.
 
-        You can also send a message yourself and encrypt it using your Private Key. If you send the Encrypted message it can be opened by anyone who has the Public Key that is paired with your Private Key.
+        You can also send a message yourself and encrypt it using your Private Key. 
+        If you send the Encrypted message it can be opened by anyone who has the Public Key that is paired with your Private Key.
 
 * Symmetric encryption route: 
 
-        Write as message that you want to Encrypt. Make up your own Key. This could be anything like a word or a string of characters. Press Encrypt and share the Encrypted message with the recipient. To Decrypt it they need the Key. This can't be shared publicly because then everyone can Decrypt the message. 
+        Write as message that you want to Encrypt. Make up your own Key. This could be anything like a word or a string of characters. 
+        Press Encrypt and share the Encrypted message with the recipient. To Decrypt it they need the Key. 
+        This can't be shared publicly because then everyone can Decrypt the message. 
 
 * Hybrid Encryption: uses both Symmetric and Asymmetric encryption. 
 
-        You can encrypt the Bulk Data using Symetric because it's faster and uses less resources. But to share the Key you can send it in a message and use Assymetric encryption to Encrypt it. You will need the Public Key of the intended recipient to Encrypt the message that contains the Key. The recipient can then decrypt it using their Private Key.
+        You can encrypt the Bulk Data using Symetric because it's faster and uses less resources. 
+        But to share the Key you can send it in a message and use Assymetric encryption to Encrypt it. 
+        You will need the Public Key of the intended recipient to Encrypt the message that contains the Key. 
+        The recipient can then decrypt it using their Private Key.
         
 ---
 
@@ -75,17 +89,55 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
         Confidentiality: Only the intended recipient with the Private Key can read and decrypt the message.
     
-        Authentication: if the recipient can open the message using the Public Key of the sender, it means it was encrypted with the sender's Private Key. 
+        Authentication: if the recipient can open the message using the Public Key of the sender, 
+        it means it was encrypted with the sender's Private Key. 
 
-        Integrity: if the recipient can't open the message with the sender's Public Key, it might be because the encrypted message was modified during transit. The edited encrypted message is not matched to a pair of Keys.
+        Integrity: if the recipient can't open the message with the sender's Public Key, 
+        it might be because the encrypted message was modified during transit. 
+        The edited encrypted message is not matched to a pair of Keys.
+
+---
+
+* __Examples of Historial Ciphers__
+
+        __Caesar:__ This cipher is attributed to Julius Caesar, who is said to have used it to communicate securely with his generals. It is a simple substitution cipher where each letter in the plaintext is shifted a specific number of places down the alphabet. The shift number said to be used by Caesar was three. Substitution ciphers are often implemented by writing down the plaintext alphabet, with the ciphertext alphabet written above the plaintext letters, shifted by the number those communicating agree to. A shift of three puts the letter D above the plaintext A, E above B and so on. The number of characters shifted is considered a simple form of a key.
+
+        __Atbash:__ This cipher is a substitution cipher in which the plaintext alphabet is mapped onto itself but in reverse order. In other words, the plaintext letter A is mapped to ciphertext Z, B is mapped to Y, C to X and so on. Atbash is named after the two first and two last letters in the Hebrew alphabet. It is thought to have been in use for hundreds of years.
+
+* __Examples of Digital Ciphers__
+
+        __Advanced Encryption Standard (AES):__ This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
+        Instead of a single round of encryption, data is put through several rounds of substitution, transposition, and mixing to make it harder to compromise.
+
+        __RSA:__: This is a type of Asymmetric encryption, which uses two different but linked keys. 
+        In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
 
 ## Opdracht
 ### Gebruikte bronnen
 * __Symmetric and Asymmetric Encryption__ (https://www.youtube.com/watch?v=o_g-M7UBqI8&ab_channel=PracticalNetworking)
 * __Public and Private Keys__ (https://www.youtube.com/watch?v=_zyKvPvh808&ab_channel=PracticalNetworking)
-
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+* __Types of Ciphers__ (https://www.techtarget.com/searchsecurity/definition/cipher)
+* __AES Encryption/Symmetric Tool__ (https://aesencryption.net/)
+* __RSA Encryption/Asymmetric Tool__ (https://www.devglan.com/online-tools/rsa-encryption-decryption)
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+* __Slack Public Key and Encrypted Message in AES and Encrypted Message in RSA that contains Key to AES message__
+
+![Alt text](../00_includes/03_SlackSymmetric.JPG)
+
+* __Encrypting Key for Jared in AES__
+
+![Alt text](../00_includes/03_AESencryption.JPG)
+
+* __Encrypting AES Key in RSA for Jared using his Public Key__
+
+![Alt text](../00_includes/03_AsymmetricKeyEncryption.JPG)
+
+* __Jared Decrypted the message in AES__
+
+![Alt text](../00_includes/03_JaredDecrypted.png)
+
+* __Encryption/Decryption Route__
+
+![Alt text](../00_includes/03_cryptography.jpg)
