@@ -26,25 +26,26 @@ So if the sender signed the message no one can alter it. This is used to get aut
 * Cipher Text: Data while encrypted or after encryption.
 * Simple Encryption: Transforms Plain Text into Cipher Text.
         
-        * Doesn't scale.
-        * Hard to do securely.
-        * Cannot simply use Standard Algorithm that is known to the public. That makes it easy for everyone to decrypt.
+  * Doesn't scale.
+  * Hard to do securely.
+  * Cannot simply use Standard Algorithm that is known to the public. That makes it easy for everyone to decrypt.
 * Key Based Encryption: Combines industry vetted algorithms with Secret Keys, which can be randomly generated.
 
 ---
 
 * 2 Types of Key Based Encryption: 
+
     * Symmetric: Encrypts and Decrypts using the __same__ Key. It moves forwards to Encrypt and backwards to Decrypt. 
     
-        Security is weak, secret key is shared, because when someone intercepts the key before it reaches the recipient they can decrypt the message. It's faster and has lower CPU usage. Better for Bulk Data.
+      Security is weak, secret key is shared, because when someone intercepts the key before it reaches the recipient they can decrypt the message. It's faster and has lower CPU usage. Better for Bulk Data.
 
-        It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 3 times. The word Hello becomes Khoor. To decrypt you simply move backwards 3 times. Because it is the same Key it can only execute the same amount of steps.
+      It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 3 times. The word Hello becomes Khoor. To decrypt you simply move backwards 3 times. Because it is the same Key it can only execute the same amount of steps.
        
-    * Asymmetric: Encrypts and Decrypts using __different__ Keys. It moves forwards to Encrypt __and__ forwards to Decrypt. 
+   * Asymmetric: Encrypts and Decrypts using __different__ Keys. It moves forwards to Encrypt __and__ forwards to Decrypt. 
     
-        More secure. But slower because it generates much larger Key sizes. Better for Limited Data.
+     More secure. But slower because it generates much larger Key sizes. Better for Limited Data.
 
-        It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt. To decrypt you don't just move back 5 times. But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. It repeats this process with every encrypted letter.
+     It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt. To decrypt you don't just move back 5 times. But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. It repeats this process with every encrypted letter.
 
 * The 2 different Keys are related and the number of steps forward and backwards should add up to the total number of characters available in the character string used. In this case the alphabet has a total of 26 characters. So if you used 5 steps to move forward to Encrypt you have to move 21 steps forward to Decrypt so it will add up to 26.
 
@@ -74,23 +75,22 @@ You can encrypt the Bulk Data using Symetric because it's faster and uses less r
 
 * Assymetric Key Pair can be used as Encryption and Signatures to provide:
 
-        Confidentiality: Only the intended recipient with the Private Key can read and decrypt the message.
+Confidentiality: Only the intended recipient with the Private Key can read and decrypt the message.
     
-        Authentication: if the recipient can open the message using the Public Key of the sender, 
+Authentication: if the recipient can open the message using the Public Key of the sender, 
         it means it was encrypted with the sender's Private Key. 
 
-        Integrity: if the recipient can't open the message with the sender's Public Key, it might be because the encrypted message was modified during transit.  The edited encrypted message is not matched to a pair of Keys.
+Integrity: if the recipient can't open the message with the sender's Public Key, it might be because the encrypted message was modified during transit.  The edited encrypted message is not matched to a pair of Keys.
 
 * __Examples of Historial Ciphers__
 
-        __Caesar:__ This cipher is attributed to Julius Caesar, who is said to have used it to communicate securely with his generals.  It is a simple substitution cipher where each letter in the plaintext is shifted a specific number of places down the alphabet.  The shift number said to be used by Caesar was three.  Substitution ciphers are often implemented by writing down the plaintext alphabet, with the ciphertext alphabet written above the plaintext letters, shifted by the number those communicating agree to.  A shift of three puts the letter D above the plaintext A, E above B and so on.  The number of characters shifted is considered a simple form of a key.
+__Caesar:__ This cipher is attributed to Julius Caesar, who is said to have used it to communicate securely with his generals.  It is a simple substitution cipher where each letter in the plaintext is shifted a specific number of places down the alphabet.  The shift number said to be used by Caesar was three.  Substitution ciphers are often implemented by writing down the plaintext alphabet, with the ciphertext alphabet written above the plaintext letters, shifted by the number those communicating agree to.  A shift of three puts the letter D above the plaintext A, E above B and so on.  The number of characters shifted is considered a simple form of a key.
 
-        __Atbash:__ This cipher is a substitution cipher in which the plaintext alphabet is mapped onto itself but in reverse order. In other words, the plaintext letter A is mapped to ciphertext Z, B is mapped to Y, C to X and so on. Atbash is named after the two first and two last letters in the Hebrew alphabet. It is thought to have been in use for hundreds of years.
+__Atbash:__ This cipher is a substitution cipher in which the plaintext alphabet is mapped onto itself but in reverse order. In other words, the plaintext letter A is mapped to ciphertext Z, B is mapped to Y, C to X and so on. Atbash is named after the two first and two last letters in the Hebrew alphabet. It is thought to have been in use for hundreds of years.
 
 * __Examples of Digital Ciphers__
 
-__Advanced Encryption Standard (AES):__ 
-This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
+__Advanced Encryption Standard (AES):__ This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
 Instead of a single round of encryption, data is put through several rounds of substitution, transposition, and mixing to make it harder to compromise.
 
 __RSA:__ This is a type of Asymmetric encryption, which uses two different but linked keys. In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
