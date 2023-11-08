@@ -44,13 +44,8 @@ So if the sender signed the message no one can alter it. This is used to get aut
     
         More secure. But slower because it generates much larger Key sizes. Better for Limited Data.
 
-            It uses a series of characters like the alphabet and moves forward to encrypt. 
-            An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt.
-            To decrypt you don't just move back 5 times. 
-            But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. 
-            It repeats this process with every encrypted letter.
-
-* The 2 different Keys are related and the number of steps forward and backwards should add up to the total number of characters available in the character string used. In this case the alphabet has a total of 26 characters. So if you used 5 steps to move forward to Encrypt you have to move 21 steps forward to Decrypt so it will add up to 26.
+            It uses a series of characters like the alphabet and moves forward to encrypt. An example would be a Secret Key that moves forward 5 times. The word Hello becomes mjqqt. To decrypt you don't just move back 5 times. But you use a different Key to also move forwards 21 times so it passes Z and A to finally reach the letter H. It repeats this process with every encrypted letter.
+            * The 2 different Keys are related and the number of steps forward and backwards should add up to the total number of characters available in the character string used. In this case the alphabet has a total of 26 characters. So if you used 5 steps to move forward to Encrypt you have to move 21 steps forward to Decrypt so it will add up to 26.
 
 * Because encrypting Bulk Data using Assymetric encryption is burdersome, it's better to use Symmetric encryption to encrypt it. But it has weak security, so a way around this is to use Assymetric to encrypt the Symmetric key and send it to the recipient.
 
@@ -62,29 +57,19 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
 * Asymmetric encryption route:
 
-        Generate a Public and Private Key pair. Send the Public Key to the person you want to receive the message from. 
-        They will write a message and encrypt it using your own Public Key. 
-        They will send the Encrypted message to you, that you can then Decrypt by using your own Private Key
-        That is paired with the Public Key that was used to Encrypt it.
+        Generate a Public and Private Key pair. Send the Public Key to the person you want to receive the message from. They will write a message and encrypt it using your own Public Key. They will send the Encrypted message to you, that you can then Decrypt by using your own Private Key that is paired with the Public Key that was used to Encrypt it.
 
-        You can also send a message yourself and encrypt it using your Private Key. 
-        If you send the Encrypted message it can be opened by anyone who has the Public Key that is paired with your Private Key.
+        You can also send a message yourself and encrypt it using your Private Key. If you send the Encrypted message it can be opened by anyone who has the Public Key that is paired with your Private Key.
 
 * Symmetric encryption route: 
 
-        Write as message that you want to Encrypt. Make up your own Key. This could be anything like a word or a string of characters. 
-        Press Encrypt and share the Encrypted message with the recipient. To Decrypt it they need the Key. 
-        This can't be shared publicly because then everyone can Decrypt the message. 
+        Write as message that you want to Encrypt. Make up your own Key.
+          This could be anything like a word or a string of characters. Press Encrypt and share the Encrypted message with the recipient.
+          To Decrypt it they need the Key. This can't be shared publicly because then everyone can Decrypt the message. 
 
 * Hybrid Encryption: uses both Symmetric and Asymmetric encryption. 
 
-        You can encrypt the Bulk Data using Symetric because it's faster and uses less resources. 
-        But to share the Key you can send it in a message and use Assymetric encryption to Encrypt it. 
-        You will need the Public Key of the intended recipient to Encrypt the message that contains the Key. 
-        The recipient can then decrypt it using their Private Key.
-        
----
-
+        You can encrypt the Bulk Data using Symetric because it's faster and uses less resources. But to share the Key you can send it in a message and use Assymetric encryption to Encrypt it. You will need the Public Key of the intended recipient to Encrypt the message that contains the Key. The recipient can then decrypt it using their Private Key.
 * Assymetric Key Pair can be used as Encryption and Signatures to provide:
 
         Confidentiality: Only the intended recipient with the Private Key can read and decrypt the message.
@@ -92,11 +77,8 @@ So if the sender signed the message no one can alter it. This is used to get aut
         Authentication: if the recipient can open the message using the Public Key of the sender, 
         it means it was encrypted with the sender's Private Key. 
 
-        Integrity: if the recipient can't open the message with the sender's Public Key, 
-        it might be because the encrypted message was modified during transit. 
-        The edited encrypted message is not matched to a pair of Keys.
-
----
+        Integrity: if the recipient can't open the message with the sender's Public Key, it might be because the encrypted message was modified during transit.
+         The edited encrypted message is not matched to a pair of Keys.
 
 * __Examples of Historial Ciphers__
 
@@ -108,7 +90,6 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
         __Advanced Encryption Standard (AES):__ This is a Symmetric encryption that uses the same key to encrypt and decrypt protected data. 
         Instead of a single round of encryption, data is put through several rounds of substitution, transposition, and mixing to make it harder to compromise.
-
         __RSA:__: This is a type of Asymmetric encryption, which uses two different but linked keys. 
         In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
 
