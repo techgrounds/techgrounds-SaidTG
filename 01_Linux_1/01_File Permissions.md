@@ -21,6 +21,7 @@ stat +bestandnaam = om alle permission te zien, lange versie
 chmod 700 = om permissies te verwijderen behalve owner
 
 chmod +x bestandnaam = maakt bestand executable
+
 ## Opdracht
 ### Gebruikte bronnen
 * Toon Permissies, owner, groups: (https://askubuntu.com/questions/175054/how-to-find-owner-and-group-of-a-directory)
