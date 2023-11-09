@@ -57,6 +57,8 @@ So if the sender signed the message no one can alter it. This is used to get aut
 
 * Recipient: The one who receives the Encrypted message that was Encrypted with their own Public Key. It can be Decrypted by using the Recipient's Private Key.
 
+---
+
 * Asymmetric encryption route:
 
 Generate a Public and Private Key pair. Send the Public Key to the person you want to receive the message from. They will write a message and encrypt it using your own Public Key. They will send the Encrypted message to you, that you can then Decrypt by using your own Private Key that is paired with the Public Key that was used to Encrypt it.
@@ -81,6 +83,8 @@ Authentication: if the recipient can open the message using the Public Key of th
         it means it was encrypted with the sender's Private Key. 
 
 Integrity: if the recipient can't open the message with the sender's Public Key, it might be because the encrypted message was modified during transit.  The edited encrypted message is not matched to a pair of Keys.
+
+---
 
 * __Examples of Historial Ciphers__
 
