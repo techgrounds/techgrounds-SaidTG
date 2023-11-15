@@ -60,4 +60,3 @@ Fixed price - You provision resources and are charged for those instances whethe
 * __Advatanges of the Cloud__ (https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/benefits-of-cloud-migration/#benefits)
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
