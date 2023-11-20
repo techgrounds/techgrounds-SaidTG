@@ -78,7 +78,6 @@
 
 ### Gebruikte bronnen
 
-
 * __Core Services__ (https://k21academy.com/microsoft-azure/microsoft-azure-core-services-for-beginners/)
 * __Shared Responsibility__ (https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
 
