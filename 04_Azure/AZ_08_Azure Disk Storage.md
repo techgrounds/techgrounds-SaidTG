@@ -4,6 +4,8 @@ Reboot to make changes visible!
 
 ## Key-terms
 
+Connect Managed Disk to source disk of VM1
+
 sudo blkid -c /dev/null = show disk partitions, UUID, file type
 
 sudo nano /etc/fstab = Add UUID 
