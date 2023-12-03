@@ -57,9 +57,3 @@ Difference from similar services:
 * __Azure Event Grid__ (https://learn.microsoft.com/en-us/azure/event-grid/overview)
 * __Azure Queue Storage__ (https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction)
 
-
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
-### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]

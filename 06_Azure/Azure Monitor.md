@@ -25,14 +25,17 @@ Azure Monitor is a comprehensive monitoring solution provided by Microsoft Azure
         Azure Application Insights: Focuses specifically on application performance monitoring and diagnostics.
         Azure Log Analytics: Primarily focuses on log data collection and analysis.
         Azure Security Center: Concentrates on security monitoring, threat detection, and vulnerability management.
+
+Monitor uses to types of data: Metrics and Logs.
         
 ## Opdracht
 ### Gebruikte bronnen
 
 * __Azure Monitor__ (https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+* __What is Azure Monitor__ (https://pragmaticworks.com/blog/what-is-azure-monitor)
 
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+---
 
-### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+* __Azure Monitor__
+
+![Alt text](../00_includes/06_MonitorFunctions.JPG)

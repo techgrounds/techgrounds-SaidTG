@@ -1,7 +1,4 @@
 # Azure Files, App Service, CDN, DNS, SQL
-[Geef een korte beschrijving van het onderwerp]
-
-## Key-terms
 
 API = Application Programming Interface
 
@@ -136,9 +133,6 @@ In het algemeen biedt Azure DNS een geïntegreerde en schaalbare oplossing voor 
 
 * __Azure DNS__ (https://learn.microsoft.com/en-us/azure/dns/dns-overview)
 * __Azure CDN__ (https://learn.microsoft.com/en-us/azure/cdn/cdn-overview)
-
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
-### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+* __Azure Files__ (https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction)
+* __SQL__ (https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
+* __App Service__ (https://learn.microsoft.com/en-us/azure/app-service/overview)

@@ -31,9 +31,21 @@ In summary, CosmosDB aims to solve challenges related to global distribution, sc
 ### Gebruikte bronnen
 
 * __Azure Cosmos DB__ (https://learn.microsoft.com/en-us/azure/cosmos-db/introduction)
-### Ervaren problemen
-
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
+
+* __Show Item 1__
+
+![Alt text](../00_includes/item1.JPG)
+
+* __Show Items 2__
+
+![Alt text](../00_includes/item2.JPG) 
+
+* __Query both Items__
+
+![Alt text](../00_includes/itemsquery.JPG) 
+
+* __Query item with price above 500__
+
+![Alt text](../00_includes/itemqueryaboveprice.JPG) 
