@@ -3,19 +3,21 @@
 The most important data types in Python:
 
 
-    boolean
+* boolean;  
     A binary state that is either True or False.
     boolean = True
 
-    String
+* String;  
     Technically an array of characters. Strings are denoted using “ ” double quotes or ‘ ’ single quotes.
     string = "This is a string"
     Int
 
-    An integer is a whole number. Ints can be both positive and negative.
-    integer = 6
+* Integer;  
+    A whole number. Ints can be both positive and negative.
+    
+    
 
-    Float
+* Float;  
     A floating-point number is a decimal number.
     floating_point = 18.5
 
@@ -23,8 +25,8 @@ The most important data types in Python:
 
 __Exercise 1__
 
-Create a new script.
-Copy the code below into your script.
+* Create a new script.
+* Copy the code below into your script.
 
     a = 'int'
 

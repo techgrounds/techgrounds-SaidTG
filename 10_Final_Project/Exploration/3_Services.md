@@ -19,4 +19,15 @@ Een overzicht van alle diensten die gebruikt gaan worden.
 
 __List of Services__
 
-
+Storage Account
+StorageV2 of Blob
+SQL Database
+Disk Encryption
+2 x Virtual Machines
+2 x Virtual Networks
+Back-up Recovery Vault
+Peering van Virtual Networks
+Key Vault
+2 x Subnet: Management en Webserver/Applicatie
+2 x Network Security Groups (NSG)
+Installeer Apache op Webserver/Applicatie en plaats Placeholder Content
