@@ -52,6 +52,10 @@ The data should not be overwritten when you run the script multiple times.
 
 * Script: [Exercise2.2.py](Python.py/09_8_KeyValuePairs_2.2.py)
 
+* .csv file: [userinfo.csv](userinfo.csv)
+
+---
+
 # Sources
 
 * https://www.w3schools.com/python/python_dictionaries_loop.asp

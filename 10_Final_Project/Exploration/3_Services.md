@@ -31,3 +31,5 @@ Key Vault
 2 x Subnet: Management en Webserver/Applicatie
 2 x Network Security Groups (NSG)
 Installeer Apache op Webserver/Applicatie en plaats Placeholder Content
+Webserver: Linux. Adminserver: Windows
+Microsoft Entra ID / Identity and Access Management (IAM)

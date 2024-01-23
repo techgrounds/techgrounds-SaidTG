@@ -44,6 +44,7 @@ De volgende eisen zijn aangegeven als noodzakelijk:
 20.	Geen support plan.
 21.	Of er ook een backup voor de Admin server moet komen is iets waar ik zelf goed moet overnadenken. Waarschijnlijk wel verstandig.
 22.	Opslag voor Scripts moet goedkoop zijn. Sowieso tijdens Development fase.
+23. Microsoft Entra ID / Identity and Access Management (IAM)
 
 *	Diagram is van hoe de Cloud eruit moet komen te zien.
 *	Projectbudget: Development <10,- in Azure tot Eindpresentatie. Live 150,- per maand / is fictief
@@ -51,6 +52,4 @@ De volgende eisen zijn aangegeven als noodzakelijk:
 *	Gebruik Bicep in Azure
 *	Fictief scenario: Van on-premise naar cloud. Workstations overzetten naar Cloud.
 
-
-
-
+![Alt text](../../00_includes/Design_Azure.JPG)
