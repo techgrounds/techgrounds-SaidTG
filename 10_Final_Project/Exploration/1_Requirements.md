@@ -22,7 +22,8 @@ __List of Requirements:__
 De volgende eisen zijn aangegeven als noodzakelijk:
 
 0.	Webserver is Linux, Admin Server is Windows.
-1.	Alle VM disks moeten encrypted zijn. Gebruik industriestandaard, zo goedkoop mogelijke encryptie.
+1.	Alle VM disks moeten encrypted zijn. Gebruik industriestandaard, zo goedkoop mogelijke encryptie.  
+Hoeft weinig data op, zoals Java bestandjes. Dus OS disk van 4GB is wel genoeg, Managed Disk wss niet nodig.
 2.	De webserver moet dagelijks gebackupt worden. De backups moeten 7 dagen behouden worden.
 3.	De webserver moet op een geautomatiseerde manier geïnstalleerd worden.
 4.	De admin/management server moet bereikbaar zijn met een publiek IP.
@@ -46,6 +47,8 @@ De volgende eisen zijn aangegeven als noodzakelijk:
 22.	Opslag voor Scripts moet goedkoop zijn. Sowieso tijdens Development fase.
 23. Microsoft Entra ID / Identity and Access Management (IAM)
 
+*   Wie is admin thuis ip? Ben ik zelf thuis.
+*   Parameter file? wel handig!
 *	Diagram is van hoe de Cloud eruit moet komen te zien.
 *	Projectbudget: Development <10,- in Azure tot Eindpresentatie. Live 150,- per maand / is fictief
 *	Wees niet bang om verbeteringen in de architectuur voor te stellen of te implementeren, maar maak wel harde keuzes, zodat je de deadline kan halen.
