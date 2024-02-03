@@ -12,7 +12,7 @@ param nicAdminName string = 'nicAdmin'
 
 param vmAdminName string = 'vmAdmin'
 
-param AdminIP string = '87.209.154.9'
+param AdminIP string = '...'
 
 param nicPrivateIP string = '10.10.10.10'
 

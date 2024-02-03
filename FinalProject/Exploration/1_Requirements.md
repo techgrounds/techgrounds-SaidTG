@@ -55,4 +55,4 @@ Hoeft weinig data op, zoals Java bestandjes. Dus OS disk van 4GB is wel genoeg, 
 *	Gebruik Bicep in Azure
 *	Fictief scenario: Van on-premise naar cloud. Workstations overzetten naar Cloud.
 
-![Alt text](../../00_includes/Design_Azure.JPG)
+
