@@ -60,6 +60,10 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 
+//sqlServerAdministratorLogin must not be an easily guessable login name like admin or root. It can contain only alphanumeric characters and must start with a letter.
+//sqlServerAdministratorPassword must be at least eight characters long and include lowercase letters, uppercase letters, numbers, and symbols. 
+//For more information on password complexity, see the SQL Azure password policy.
+
 resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   name: sqlServerName
   location: location
@@ -78,3 +82,4 @@ resource sqlDatabase 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
     tier: sqlDatabaseSku.tier
   }
 }
+
