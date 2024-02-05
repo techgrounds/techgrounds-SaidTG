@@ -8,13 +8,17 @@ param subnetAdressPrefix string = '10.20.20.0/25'
 
 param nsgWebName string = 'nsgWeb'
 
+param WebServerPublicIP string = 'WebPubIPserver'
+
 param nicWebName string = 'nicWeb'
 
-param vmWebName string = 'vmWeb'
+@description('name of the virtual machine')
+@minLength(1)
+@maxLength(64)
+param vmWebName string = 'vmWeb' // Linux VMs can't end with period or hyphen. Can't use spaces, control characters, or these characters:
+// ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?
 
-param AdminServer string = '10.10.10.10'
-
-//param AdminServerIP string
+param AdminServerIP string = '10.10.10.10'
 
 param nicPrivateIP string = '10.20.20.20'
 
@@ -22,7 +26,7 @@ param nicPrivateIP string = '10.20.20.20'
 @description('...')
 param webUsername string 
 
-// The supplied password must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following:
+// The supplied password must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 
 // 1) Contains an uppercase character, 2) Contains a lowercase character, 3) Contains a numeric digit, 4) Contains a special character, 5) Control characters are not allowed 
 @secure()
 @description('...')
@@ -58,16 +62,30 @@ resource nsg4web 'Microsoft.Network/networkSecurityGroups@2023-06-01' = {
   properties: {
     securityRules: [
       {
-        name: 'InboundNsgWebRules'
+        name: 'AllowWebRDP'
         properties: {
-          description: 'description'
+          description: '*'
           protocol: 'Tcp'
           sourcePortRange: '*'
           destinationPortRange: '3389'
-          sourceAddressPrefix: AdminServer
-          destinationAddressPrefix: AdminServer
+          sourceAddressPrefix: AdminServerIP
+          destinationAddressPrefix: nicPrivateIP
           access: 'Allow'
-          priority: 100
+          priority: 150
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowWebSSH'
+        properties: {
+          description: '*'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          destinationPortRange: '22'
+          sourceAddressPrefix: AdminServerIP
+          destinationAddressPrefix: nicPrivateIP
+          access: 'Allow'
+          priority: 200
           direction: 'Inbound'
         }
       }
@@ -76,32 +94,38 @@ resource nsg4web 'Microsoft.Network/networkSecurityGroups@2023-06-01' = {
 }
 
 resource WebPublicIPAddress 'Microsoft.Network/publicIPAddresses@2019-11-01' = {
-  name: 'name'
+  name: WebServerPublicIP
   location: location
+  sku:{
+    name:'Standard'
+  }
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
+    publicIPAllocationMethod: 'Static'
     dnsSettings: {
-      domainNameLabel: 'dnsname'
+      domainNameLabel: 'cloud12' //It must conform to the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$."}
     }
   }
 }
 
 
 resource nic4web 'Microsoft.Network/networkInterfaces@2023-06-01' = {
-    name: nicWebName
-    location: location
-    properties: {
-        ipConfigurations: [{
-            name: 'ipconfig1'
-            properties: {
-                privateIPAllocationMethod: 'Static'
-                privateIPAddress: nicPrivateIP
-                subnet: {
-                    id: subnet4web.id
-                }
-            }
-        }]
-    }
+  name: nicWebName
+  location: location
+  properties: {
+    ipConfigurations: [{
+      name: 'ipWebConfig'
+      properties: {
+        publicIPAddress: {
+          id: WebPublicIPAddress.id
+        }
+        privateIPAllocationMethod: 'Static'
+        privateIPAddress: nicPrivateIP
+        subnet: {
+          id: subnet4web.id
+        }
+      }
+    }]
+  }
 }
 
 resource LinuxVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
@@ -109,7 +133,7 @@ resource LinuxVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   location: location
   properties: {
     hardwareProfile: {
-      vmSize: 'Standard_B1s'
+      vmSize: 'Standard_B2ms'
     }
     osProfile: {
       computerName: vmWebName
@@ -148,15 +172,23 @@ resource LinuxVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   }
 }
 
-resource vmApacheInstall 'Microsoft.Compute/virtualMachines/extensions@2020-06-01' = {
+resource vmApacheInstall 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' = {
   parent: LinuxVM
-  name: 'vmWebApache'
+  name: 'installApacheOnWebVM'
   location: location
   properties: {
     publisher: 'Microsoft.Azure.Extensions'
-    type: 'customScript'
+    type: 'customScriptExtension'
     typeHandlerVersion: '2.1'
     autoUpgradeMinorVersion: true
-    settings:
+    settings: {
+      skipDos2Unix: false 
+      fileUris: [
+        'https://raw.githubusercontent.com/techgrounds/techgrounds-SaidTG/main/FinalProject/v1.0/scripts/installWeb.sh'
+      ]
+    }
+    protectedSettings: {
+      commandToExecute: 'sh installWeb.sh'
+    }
   }
 }

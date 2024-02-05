@@ -8,12 +8,12 @@ param location string = resourceGroup().location
   'dev'
   'prod'
 ])
-param environmentType string = 'dev'
+param environmentType string
 
 @description('The unique name of the storage account. This is used to ensure that resource names are unique.')
 @minLength(3)
 @maxLength(24)
-param storageAccountName string = 'stgacc${uniqueString(resourceGroup().id)}'
+param storageAccountName string = 'strgaccv1-${uniqueString(resourceGroup().id)}' //change characters before $ sign as you wish
 
 param containerName string = 'blobcontain'
 
@@ -65,7 +65,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       }
       {
         name: 'Content'
-        value: loadTextContent('./scripts/installWeb.sh')
+        value: loadTextContent('../scripts/installWeb.sh')
       }  
     ]
     scriptContent: 'echo "$Content" > ${installWebServer} && az storage blob upload -f ${installWebServer} -c ${containerName} -n ${containerName}'

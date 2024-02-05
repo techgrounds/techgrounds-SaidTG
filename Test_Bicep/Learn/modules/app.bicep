@@ -30,3 +30,7 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
 
 @description('The default host name of the App Service app.')
 output appServiceAppHostName string = appServiceApp.properties.defaultHostName
+
+appServiceAppName: appServiceAppName
+appServicePlanName: appServicePlanName
+appServicePlanSkuName

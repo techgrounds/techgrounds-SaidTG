@@ -1,5 +1,5 @@
 
-param location string = resourceGroup().location
+param location string 
 
 param vnetAdminName string = 'vnetAdmin'
 param vnetAddressPrefix string = '10.10.10.0/24'
@@ -8,11 +8,17 @@ param subnetAdressPrefix string = '10.10.10.0/25'
 
 param nsgAdminName string = 'nsgAdmin'
 
+param AdminServerPublicIP string = 'AdminPubIPserver'
+
 param nicAdminName string = 'nicAdmin'
 
-param vmAdminName string = 'vmAdmin'
+@description('name of the virtual machine')
+@minLength(1)
+@maxLength(15)
+param vmAdminName string = 'vmAdmin' // Windows VMs can't include period or end with hyphen. Can't use spaces, control characters, or these characters: 
+// ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?
 
-param AdminIP string = '...'
+param AdminHomeIP string = '87.209.154.9'
 
 param nicPrivateIP string = '10.10.10.10'
 
@@ -56,16 +62,30 @@ resource nsg4admin 'Microsoft.Network/networkSecurityGroups@2023-06-01' = {
   properties: {
     securityRules: [
       {
-        name: 'nsgAdminRules'
+        name: 'AllowAdminRDP'
         properties: {
-          description: 'description'
+          description: '*'
           protocol: 'Tcp'
           sourcePortRange: '*'
           destinationPortRange: '3389'
-          sourceAddressPrefix: AdminIP
-          destinationAddressPrefix: '*'
+          sourceAddressPrefix: AdminHomeIP
+          destinationAddressPrefix: nicPrivateIP
           access: 'Allow'
-          priority: 100
+          priority: 150
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowAdminSSH'
+        properties: {
+          description: '*'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          destinationPortRange: '22'
+          sourceAddressPrefix: AdminHomeIP
+          destinationAddressPrefix: nicPrivateIP
+          access: 'Allow'
+          priority: 200
           direction: 'Inbound'
         }
       }
@@ -74,32 +94,32 @@ resource nsg4admin 'Microsoft.Network/networkSecurityGroups@2023-06-01' = {
 }
 
 resource AdminPublicIPAddress 'Microsoft.Network/publicIPAddresses@2019-11-01' = {
-  name: 'name'
+  name: AdminServerPublicIP
   location: location
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
-    dnsSettings: {
-      domainNameLabel: 'dnsname'
-    }
+    publicIPAllocationMethod: 'Static'
   }
 }
 
 
 resource nic4admin 'Microsoft.Network/networkInterfaces@2023-06-01' = {
-    name: nicAdminName
-    location: location
-    properties: {
-        ipConfigurations: [{
-            name: 'ipconfig1'
-            properties: {
-                privateIPAllocationMethod: 'Static'
-                privateIPAddress: nicPrivateIP
-                subnet: {
-                    id: subnet4admin.id
-                }
-            }
-        }]
-    }
+  name: nicAdminName
+  location: location
+  properties: {
+    ipConfigurations: [{
+        name: 'ipAdminConfig'
+        properties: {
+          publicIPAddress: {
+           id: AdminPublicIPAddress.id
+          }
+          privateIPAllocationMethod: 'Static'
+          privateIPAddress: nicPrivateIP
+          subnet: {
+                  id: subnet4admin.id
+          } 
+        }
+    }]
+  }
 }
 
 resource windowsVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
@@ -107,7 +127,7 @@ resource windowsVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   location: location
   properties: {
     hardwareProfile: {
-      vmSize: 'Standard_B1s'
+      vmSize: 'Standard_B2ms'
     }
     osProfile: {
       computerName: vmAdminName
@@ -147,3 +167,4 @@ resource windowsVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   }
 }
 
+output AdminPublicIPaddress string = AdminPublicIPAddress.properties.ipAddress
