@@ -1,5 +1,16 @@
 
+//web server
+
 param location string = resourceGroup().location
+
+@description('select an environment type for deployment')
+@allowed([
+  'dev'
+  'prod'
+])
+param environmentType string = 'dev'
+
+var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_ZRS' : 'Standard_LRS'
 
 param vnetWebName string = 'vnetWeb'
 param vnetAddressPrefix string = '10.20.20.0/24'
@@ -12,24 +23,30 @@ param WebServerPublicIP string = 'WebPubIPserver'
 
 param nicWebName string = 'nicWeb'
 
+param availabilityZone string 
+
+param linuxOSVersion string = '22_04-lts-gen2'
+
+param linuxVMsize string = 'Standard_B2ms'
+
 @description('name of the virtual machine')
 @minLength(1)
 @maxLength(64)
 param vmWebName string = 'vmWeb' // Linux VMs can't end with period or hyphen. Can't use spaces, control characters, or these characters:
 // ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?
 
-param AdminServerIP string = '10.10.10.10'
+param AdminServerIP string = '172.211.9.223'
 
 param nicPrivateIP string = '10.20.20.20'
 
 @secure()
-@description('...')
+@description('select a username in terminal during deployment')
 param webUsername string 
 
 // The supplied password must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 
 // 1) Contains an uppercase character, 2) Contains a lowercase character, 3) Contains a numeric digit, 4) Contains a special character, 5) Control characters are not allowed 
 @secure()
-@description('...')
+@description('select a password in terminal during deployment')
 param webPassword string
 
 resource vnet4web 'Microsoft.Network/virtualNetworks@2023-06-01' = {
@@ -89,6 +106,34 @@ resource nsg4web 'Microsoft.Network/networkSecurityGroups@2023-06-01' = {
           direction: 'Inbound'
         }
       }
+      {
+        name: 'AllowWebHTTPS'
+        properties: {
+          description: '*'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          destinationPortRange: '443'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 250
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowWebHTTP'
+        properties: {
+          description: '*'
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          destinationPortRange: '80'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 300
+          direction: 'Inbound'
+        }
+      }
     ]
   }
 }
@@ -106,7 +151,6 @@ resource WebPublicIPAddress 'Microsoft.Network/publicIPAddresses@2019-11-01' = {
     }
   }
 }
-
 
 resource nic4web 'Microsoft.Network/networkInterfaces@2023-06-01' = {
   name: nicWebName
@@ -131,20 +175,27 @@ resource nic4web 'Microsoft.Network/networkInterfaces@2023-06-01' = {
 resource LinuxVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
   name: vmWebName
   location: location
+  zones: [
+    availabilityZone
+  ]
   properties: {
+    virtualMachineScaleSet: {
+      id: 
+    }
     hardwareProfile: {
-      vmSize: 'Standard_B2ms'
+      vmSize: linuxVMsize
     }
     osProfile: {
       computerName: vmWebName
       adminUsername: webUsername
       adminPassword: webPassword
+      customData: loadFileAsBase64('../scripts/installWeb.sh')
     }
     storageProfile: {
       imageReference: {
         publisher: 'Canonical'
         offer: '0001-com-ubuntu-server-jammy'
-        sku: '22_04-lts-gen2'
+        sku: linuxOSVersion
         version: 'latest'
       }  
       osDisk: {
@@ -168,27 +219,6 @@ resource LinuxVM 'Microsoft.Compute/virtualMachines@2023-09-01' = {
       bootDiagnostics: {
         enabled: true
       }
-    }
-  }
-}
-
-resource vmApacheInstall 'Microsoft.Compute/virtualMachines/extensions@2023-09-01' = {
-  parent: LinuxVM
-  name: 'installApacheOnWebVM'
-  location: location
-  properties: {
-    publisher: 'Microsoft.Azure.Extensions'
-    type: 'customScriptExtension'
-    typeHandlerVersion: '2.1'
-    autoUpgradeMinorVersion: true
-    settings: {
-      skipDos2Unix: false 
-      fileUris: [
-        'https://raw.githubusercontent.com/techgrounds/techgrounds-SaidTG/main/FinalProject/v1.0/scripts/installWeb.sh'
-      ]
-    }
-    protectedSettings: {
-      commandToExecute: 'sh installWeb.sh'
     }
   }
 }

@@ -1,20 +1,31 @@
-//When naming Azure resources, resource names must meet service requirements. The requirements for Key Vault names are:
-//Between 3 and 24 characters long.
-//Alphanumerics and hyphens (dash).
-//Start with a letter.
-//End with a letter or digit.
-//Can not contain consecutive hyphens.
-//Key Vault names must be globally unique.
 
-param location string = resourceGroup().location
+//The requirements for Key Vault names are: between 3 and 24 characters long. Alphanumerics and hyphens (dash).
+//Start with a letter. End with a letter or digit. Can not contain consecutive hyphens. Key Vault names must be globally unique.
+
+//@description('select an environment type for deployment')
+//@allowed([
+ // 'dev'
+ // 'prod'
+//])
+//param environmentType string = 'dev'
+
+param location string 
 
 @description('The unique name of the Key Vault. uniqueString is used to ensure that resource names are unique.')
-@minLength(3) // alphanumerics and hyphens. Start with letter. End with letter or digit. Can't contain consecutive hyphens.
+@minLength(3)
 @maxLength(24) // change characters before $ sign as you wish.
-param keyVaultName string = 'keyVaultv1-${uniqueString(resourceGroup().id)}' 
+param keyVaultName string = 'keyVault-${uniqueString(resourceGroup().id)}'
 
 var tenantId = 'de60b253-74bd-4365-b598-b9e55a2b208d'
 var objectId = '5e629060-8ed6-4f5d-bdf4-310d6c3bec21'
+
+@description('Specifies the name of the secret that you want to create.') //Alphanumerics and hyphens only.
+@secure()
+param secretName1 string 
+
+@description('Specifies the value of the secret that you want to create.')
+@secure()
+param secretValue1 string
 
 resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
   name: keyVaultName
@@ -46,10 +57,20 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
       family: 'A'
     }
     networkAcls: {
-      defaultAction:'Allow'
+      defaultAction: 'Deny'
       bypass:'AzureServices'
     }
   }
 }
 
-output keyVaultName string = keyVaultName
+resource keyVaultSecret1 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: keyVault
+  name: secretName1
+  properties: {
+    value: secretValue1
+  }
+}
+
+//output keyVault12 string = keyVault.name
+//output keyVaultId string = keyVault.id
+//output keyVaultn string = keyVault.properties.vaultUri

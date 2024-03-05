@@ -8,36 +8,46 @@ targetScope = 'resourceGroup'
   'dev'
   'prod'
 ])
-param environmentType string 
+param environmentType string = 'dev'
+//param projectName string = 'cloud12'
 
 @description('The Azure region into which the resources should be deployed.')
 param location string = resourceGroup().location
 
-param vnetWebName string
-param vnetAdminName string
-param storageAccountName string = 'stgacc${uniqueString(resourceGroup().id)}'
-param recoveryVaultName string = 'recoveryVault-v1'
-param keyVaultName string = 'keyvault${uniqueString(resourceGroup().id)}'
+param vnetAdminName string = 'vnetAdmin'
+param vnetWebName string = 'vnetWeb'
+param availabilityZoneAdmin string = '2'
+param availabilityZoneWeb string = '1'
+
+param storageAccountName string = '${environmentType}stg${uniqueString(resourceGroup().id)}'
+param recoveryVaultName string = '${environmentType}-recoveryvault-${uniqueString(resourceGroup().id)}'
+param keyVaultName string = '${environmentType}-kvault-${uniqueString(resourceGroup().id)}'
+
+param secretName string
+@secure()
+param secretValue string
 
 @secure()
 param adminUsername string
-
 @secure()
 param adminPassword string 
-
 @secure()
 param webUsername string
-
 @secure()
 param webPassword string
 
+resource pKeyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+  name: 'myKeyvaultun200303'
+}
+
 @description('create the Admin server')
-module serverAdmin 'modules/serverAdmin.bicep' = {
+module serverAdmin 'modules/serverAdmin.bicep' =  {
   name: 'serverAdmin'
   params: {
     adminUsername: adminUsername
     adminPassword: adminPassword
     location: location
+    availabilityZone: availabilityZoneAdmin
   }
 }
 
@@ -48,6 +58,8 @@ module serverWeb 'modules/serverWeb.bicep' = {
     webUsername: webUsername
     webPassword: webPassword
     location: location
+    availabilityZone: availabilityZoneWeb
+    AdminServerIP: serverAdmin.outputs.AdminPubIP
   }
 }
 
@@ -55,8 +67,8 @@ module serverWeb 'modules/serverWeb.bicep' = {
 module networkPeering 'modules/networkPeering.bicep' = {
   name: 'networkPeering'
   params:{
-    vnetWebName: vnetWebName
     vnetAdminName: vnetAdminName
+    vnetWebName: vnetWebName
   }
 }
 
@@ -76,14 +88,21 @@ module recoveryVault 'modules/recoveryVault.bicep' = {
   params:{
     recoveryServiceVaultName: recoveryVaultName
     location: location
+
   }
 }
 
-@description('create the key vault')
-module keyVault 'modules/keyVault.bicep' = {
-  name: 'keyVault'
-  params:{
-    keyVaultName: keyVaultName
-    location: location
-  }
-}
+//@description('create the key vault')
+//module keyVault 'modules/keyVault.bicep' = {
+ // name: 'keyVault'
+ // params:{
+  //  keyVaultName: keyVaultName
+ //   location: location
+ //   secretName: secretName
+ //   secretValue: secretValue
+ // }
+//}
+
+
+output environmentType string = environmentType
+output PublicIpad string = serverAdmin.outputs.AdminPu

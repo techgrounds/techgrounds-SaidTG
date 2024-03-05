@@ -1,25 +1,26 @@
 
-// storage account
+//storage account
 
 param location string = resourceGroup().location
 
 @description('select an environment type for deployment')
-@allowed([
-  'dev'
-  'prod'
+@allowed([ 
+  'dev' 
+  'prod' 
 ])
-param environmentType string
+param environmentType string = 'dev'
+//param projectName string = 'iac'
+
+var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_ZRS' : 'Standard_LRS'
 
 @description('The unique name of the storage account. This is used to ensure that resource names are unique.')
 @minLength(3)
 @maxLength(24)
-param storageAccountName string = 'strgaccv1-${uniqueString(resourceGroup().id)}' //change characters before $ sign as you wish
+param storageAccountName string 
 
 param containerName string = 'blobcontain'
 
 param installWebServer string = 'installUbuntu'
-
-var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_ZRS' : 'Standard_LRS'
 
 // storage account names must be unique in Azure and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
@@ -46,7 +47,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.56.0'
+    azCliVersion: '2.53.1'
     timeout: 'PT1H'
     retentionInterval: 'P1D'
     cleanupPreference: 'OnSuccess'
@@ -66,7 +67,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       {
         name: 'Content'
         value: loadTextContent('../scripts/installWeb.sh')
-      }  
+      } 
     ]
     scriptContent: 'echo "$Content" > ${installWebServer} && az storage blob upload -f ${installWebServer} -c ${containerName} -n ${containerName}'
   }
@@ -74,3 +75,4 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 output storageName string = storageAccountName
 output bloburl string = storageAccount.properties.primaryEndpoints.blob
+output dp string = deploymentScript.properties.environmentVariables[2].value
