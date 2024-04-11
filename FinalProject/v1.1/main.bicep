@@ -31,19 +31,21 @@ param lAdminUsername string
 param lAdminPassword string
 
 param vnetAdminName string = 'vnetAdmin'
-//param vnetAdminAddressPrefix string = '10.10.10.0/24'
+param vnetAdminAddressPrefix string = '10.10.10.0/24'
 
-//param subnetAdminName string = 'subnetAdmin'
-//param subnetAdminAdressPrefix string = '10.10.10.0/25'
+param subnetAdminName string = 'subnetAdmin'
+param subnetAdminAdressPrefix string = '10.10.10.0/25'
+
+param AdminHomeIP string 
 
 param vnetWebName string = 'vnetWeb'
-//param vnetWebAddressPrefix string = '10.20.20.0/24'
+param vnetWebAddressPrefix string = '10.20.20.0/24'
 
-//param subnetVMSSname string = 'subnetWeb'
-//param subnetVMSSaddressPrefix string = '10.20.20.0/25'
+param subnetVMSSname string = 'subnetWeb'
+param subnetVMSSaddressPrefix string = '10.20.20.0/25'
 
-//param subnetAGname string = 'subnetAG'
-//param subnetAGaddressPrefix string = '10.20.20.0/25'
+param subnetAGname string = 'subnetAG'
+param subnetAGaddressPrefix string = '10.20.20.128/25'
 
 //param nsgVMSSname string = 'nsgVMSS'
 //param nsgAGname string = 'nsgAG'
@@ -64,11 +66,16 @@ module keyVault 'modules/keyVault.bicep' = {
 
 // 2. Admin Server //
 module serverAdmin 'modules/serverAdmin.bicep' = {
-  name: 'adminServer'
+  name: 'serverAdmin'
   params: {
     location: location
     adminUsername: wAdminUsername
     adminPassword: wAdminPassword
+    vnetAdminName: vnetAdminName
+    vnetAdminAddressPrefix: vnetAdminAddressPrefix
+    AdminHomeIP: AdminHomeIP
+    subnetAdminName: subnetAdminName
+    subnetAdminAdressPrefix: subnetAdminAdressPrefix
   }
 }
 
@@ -80,6 +87,12 @@ module serverWeb 'modules/serverWeb.bicep' = {
     location: location
     linuxAdminPassword: lAdminPassword
     linuxAdminUsername: lAdminUsername
+    vnetWebName: vnetWebName
+    vnetWebAddressPrefix: vnetWebAddressPrefix
+    subnetVMSSname: subnetVMSSname
+    subnetVMSSaddressPrefix: subnetVMSSaddressPrefix
+    subnetAGname: subnetAGname
+    subnetAGaddressPrefix: subnetAGaddressPrefix
     AdminServerIP: serverAdmin.outputs.AdminPubIP
   }
 }

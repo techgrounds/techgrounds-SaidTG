@@ -8,7 +8,7 @@ param publicIPaGname string = 'publicIPappGateway'
 param appGatewayName string = 'applicationGatewayWeb'
 param backendPoolAGwebName string  = '${VMScaleSetName}backendPoolAG'
 
-param VMScaleSetName string = 'VMSSWebServer'
+param VMScaleSetName string
 param availabilityZone string = '1'
 
 @description('The VM size')
@@ -27,6 +27,18 @@ param linuxAdminUsername string
 param linuxAdminPassword string 
 
 param AdminServerIP string 
+
+param vnetWebName string = 'vnetWeb'
+param vnetWebAddressPrefix string = '10.20.20.0/24'
+
+param subnetVMSSname string = 'subnetVMSS'
+param subnetVMSSaddressPrefix string = '10.20.20.0/25'
+
+param subnetAGname string = 'subnetAG'
+param subnetAGaddressPrefix string = '10.20.20.128/25'
+
+param nsgVMSSname string = 'nsgVMSS'
+param nsgAGname string = 'nsgAG'
 
 // Public IP Address for Application Gateway //
 
@@ -399,20 +411,6 @@ resource autoScaling 'Microsoft.Insights/autoscalesettings@2022-10-01' = {
 }
 
 // Virtual Network //
-
-param vnetWebName string = 'vnetWeb'
-param vnetWebAddressPrefix string = '10.20.20.0/24'
-
-param subnetVMSSname string = 'subnetVMSS'
-param subnetVMSSaddressPrefix string = '10.20.20.0/25'
-
-param subnetAGname string = 'subnetAG'
-param subnetAGaddressPrefix string = '10.20.20.128/25'
-
-param nsgVMSSname string = 'nsgVMSS'
-param nsgAGname string = 'nsgAG'
-
-//param AdminServerIP string 
 
 resource vnet4web 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   name: vnetWebName

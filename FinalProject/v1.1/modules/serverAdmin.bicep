@@ -12,11 +12,11 @@ param location string
 
 //var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_ZRS' : 'Standard_LRS'
 
-param vnetAdminName string = 'vnetAdmin'
-param vnetAdminAddressPrefix string = '10.10.10.0/24'
+param vnetAdminName string 
+param vnetAdminAddressPrefix string 
 
-param subnetAdminName string = 'subnetAdmin'
-param subnetAdminAdressPrefix string = '10.10.10.0/25'
+param subnetAdminName string 
+param subnetAdminAdressPrefix string 
 
 param nsgAdminName string = 'nsgAdmin'
 
@@ -35,7 +35,7 @@ param windowsVMsize string = 'Standard_B2ms'
 param vmAdminName string = 'vmAdmin' // Windows VMs can't include period or end with hyphen. Can't use spaces, control characters, or these characters: 
 // ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?
 
-param AdminHomeIP string = '87.209.154.9'
+param AdminHomeIP string 
 
 param nicPrivateIP string = '10.10.10.10'
 

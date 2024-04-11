@@ -1,8 +1,8 @@
 
 //networking peering
 
-param vnetWebName string = 'vnetWeb'
-param vnetAdminName string = 'vnetAdmin'
+param vnetWebName string 
+param vnetAdminName string 
 
 resource vnet4admin 'Microsoft.Network/virtualNetworks@2023-06-01' existing = {
   name: vnetAdminName
