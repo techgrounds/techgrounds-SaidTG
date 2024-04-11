@@ -1,7 +1,7 @@
 
 //v1.1 
 
-param location string = 'uksouth'
+param location string 
 
 @description('select an environment type for deployment')
 @allowed([ 
