@@ -4,4 +4,4 @@
 
 [My Course Assignments](Assignments)
 
-[My Infrastrucute-as-Code Project](FinalProject)
+[My Infrastrucute-as-Code Project](IaC)
