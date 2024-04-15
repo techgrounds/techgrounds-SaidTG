@@ -15,4 +15,4 @@ Op vrijdag oefenden we met z'n allen voor de presentatie.
 Geen opmerkingen
 
 ## Wat kunnen wij doen om het te verbeteren?
-Geen opmerkingen
+Geen opmerkingen.
