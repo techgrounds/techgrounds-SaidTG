@@ -14,4 +14,4 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2023-06-01' = {
       }
     ]
   }
-}
+} 
