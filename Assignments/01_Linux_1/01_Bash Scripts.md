@@ -13,7 +13,7 @@ __Exercise 1__
 * Install httpd and check status (https://www.javatpoint.com/install-httpd-ubuntu)
 * Automate saying ''Yes'' to all (https://stackoverflow.com/questions/7642674/how-do-i-script-a-yes-response-for-installing-programs)
 
-__Exercise 2__
+__Exercise 2__ 
 
 * Generate random number (https://www.tutorialspoint.com/guide-to-generate-random-numbers-in-linux)
 
