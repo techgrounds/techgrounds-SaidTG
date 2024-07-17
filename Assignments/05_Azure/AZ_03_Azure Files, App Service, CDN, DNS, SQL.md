@@ -16,7 +16,7 @@ Welke key termen horen bij Azure Files?
             REST API: Hiermee kunnen ontwikkelaars interactie hebben met Azure Files via HTTP-verzoeken.
 
 Hoe past Azure Files in een on-premises setting?
-        Azure Files kan worden geïntegreerd met on-premises omgevingen via het gebruik van Azure File Sync. Azure File Sync stelt organisaties in staat om een on-premises bestandsserver te synchroniseren met een Azure-bestandsshare. Hierdoor kunnen bedrijven profiteren van zowel lokale toegang als de voordelen van cloudopslag.
+        Azure Files kan worden geïntegreerd met on-premises omgevingen via het gebruik van Azure File Sync. Azure File Sync stelt organisaties in staat om een on-premises.bestandsserver te synchroniseren met een Azure-bestandsshare. Hierdoor kunnen bedrijven profiteren van zowel lokale toegang als de voordelen van cloudopslag.
 
 Hoe kan ik Azure Files combineren met andere diensten?
         Azure Files kan worden gecombineerd met andere Azure-diensten zoals:
