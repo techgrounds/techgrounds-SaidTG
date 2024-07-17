@@ -27,7 +27,7 @@ param nicAdminName string = 'nicAdmin'
 param availabilityZone string = '2'
 
 param windowsOSVersion string = '2022-datacenter-g2'
-param windowsVMsize string = 'Standard_B2ms'
+param windowsVMsize string = 'Standard_B2s'
 
 @description('name of the virtual machine')
 @minLength(1)

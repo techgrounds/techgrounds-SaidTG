@@ -7,7 +7,7 @@ targetScope = 'resourceGroup'
 @allowed([
   'dev'
   'prod'
-]) 
+])
 param environmentType string = 'dev'
 //param projectName string = 'cloud12'
 
